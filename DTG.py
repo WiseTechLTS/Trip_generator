@@ -18,41 +18,53 @@ x = datetime.datetime.now()
 print(x)
 
 
-def display_title():  
+def display_title():
     print("Welcome to Wisecarver Day Trip Generator!")
-#Program Welcome
+    choice = input('Shall we begin? Simply type yes or no: ')
+    if choice == 'yes':
+        print("We will start with choosing your Destination!")
+    else:
+        print("Don't worry, it will be over in no time")
 
+display_title()
+#Program Welcome
 #Loop for random choosing/ set parametes as 1.list 2.topic
 
 def list_loop(list, topic): 
     random_pick = random.choice(list)
-    user_reply = input(f'How does {random_pick} sound for your {topic}? Enter Y/N to make a selection: ')
-    if user_reply == 'y':
+    user_reply = input(f'How does {random_pick} sound for your {topic}? Enter yes or no to make a selection: ')
+    if user_reply == 'yes':
+        print("Great decision, no we can move on to where you will eat today!")
         return random_pick
-    while user_reply == 'n':
+    while user_reply == 'no':
+        print('We have many more to choose from, no worries.')
         random_pick = random.choice(list)
-        user_reply  = input(f'What about {random_pick}? Enter Y/N to make a selection: ')
-    if user_reply == 'y':
+        user_reply  = input(f'What about {random_pick}? Enter yes or no to make a selection: ')
+    if user_reply == 'yes':
+        print("Like I said, something for everyone.")
         return random_pick 
 
-def complete(dest, rest, trans, entertain):
-    satisfied = input('Are you satisfied with all your choices? Enter Y/N to make a selection: ')
-    if  satisfied == 'y':
+def complete(destinations, restaurants, transportation, entertainment):
+    satisfied = input('Are you satisfied with all your choices? Enter yes or no to make a selection: ')
+    if  satisfied == 'yes':
         print("Great Choice!")
-        satisfied = input("Are you satisfied with your choices? y/n: ")
-        print(f"You will enjoy a day trip in {dest} where you will eat at {rest}. You will use {trans} to travel and attend {entertain}!")
+        satisfied = input("Are you satisfied with your choices? yes or no: ")
+        print(f"You will enjoy a day trip in {destinations} where you will eat at {restaurants}. You will use {transportation} to travel and attend {entertainment}!")
 
-
-display_title():
-print("Come back anytime you would like for a quick way to plan a day out!")
 
 final_destination = list_loop(destinations, "destinations")
 final_restaurant = list_loop(restaurants, "restaurants")
-final_transportations = list_loop(transportation, "transportation")
+final_transportation = list_loop(transportation, "transportation")
 final_entertainment = list_loop(entertainment, "entertainment")
 
 for number in range(2):
-    print(f'Enjoy {final_destination} as well as the food at {final_restaurant}. Today your mode of transportation will be {final_transportations} please feel free to use it to attend {final_entertainment}! ')
+    print(f'Enjoy {final_destination}')
+    
+    print(f"The food at {final_restaurant} should be pleasurable.")
+
+    print(f"Today your mode of transportation will be {final_transportation}")
+
+    print(f"Please feel free to use it to attend {final_entertainment}!")
     
 
 
